@@ -6,6 +6,10 @@
     </head>
 
     <body>
+        {% if name %}
         <h1>Name: {{ name }}</h1>
+        {% else %}
+        <h1>Name:</h1>
+        {% endif %}
     </body>
 </html>
