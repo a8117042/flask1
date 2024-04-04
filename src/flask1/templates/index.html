@@ -11,5 +11,11 @@
         {% else %}
         <h1>Name:</h1>
         {% endif %}
+
+        <ul>
+            {% for user in users %}
+            <li><a href="{{ user.url }}">{{ user.username }}</a></li>
+            {% endfor %}
+        </ul>
     </body>
 </html>
