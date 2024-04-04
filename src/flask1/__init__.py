@@ -1,4 +1,4 @@
-from flask import Flask, render_template, url_for, current_app, g
+from flask import Flask, render_template, url_for, current_app, g, request
 
 def create_app(test_config = None):
     app = Flask(__name__)
@@ -39,5 +39,8 @@ def create_app(test_config = None):
         print(url_for("index"))
         print(url_for("hello-endpoint", name="world"))
         print(url_for("show_name", name="ichiro", page="1"))
+
+    with app.test_request_context("/users?updated=ture"):
+        print(request.args.get("updated"))
 
     return app
