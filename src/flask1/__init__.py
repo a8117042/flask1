@@ -1,6 +1,9 @@
+from dotenv import load_dotenv
 from flask import Flask, render_template, url_for, current_app, g, request
 
 def create_app(test_config = None):
+    load_dotenv(override=True)
+
     app = Flask(__name__)
     app.config.from_mapping(
         SECRET_KEY = 'test-secret'
