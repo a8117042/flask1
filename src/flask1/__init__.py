@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, render_template
 
 def create_app(test_config = None):
     app = Flask(__name__)
@@ -19,5 +19,9 @@ def create_app(test_config = None):
     @app.post("/hello", endpoint="hello-endpoint")
     def hello(name):
         return f"Hello {name}"
+
+    @app.get("/name/<name>")
+    def show_name(name):
+        return render_template("index.html", name=name)
 
     return app
