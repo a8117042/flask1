@@ -14,12 +14,10 @@ def create_app(test_config = None):
     @app.route("/")
     def index():
         return "Hello Flask!"
-    
+
     @app.get("/hello/<name>", endpoint="hello-endpoint")
     @app.post("/hello", endpoint="hello-endpoint")
     def hello(name):
         return f"Hello {name}"
-
-
 
     return app

@@ -27,4 +27,3 @@ def test_hello(client):
 def test_name(client, name):
     rv = client.get(f"/hello/{name}")
     assert f"Hello {name}" == rv.data.decode('utf8')
-    
