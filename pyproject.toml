@@ -2,7 +2,7 @@
 name = "flask1"
 version = "0.1.0"
 description = "Add your description here"
-dependencies = []
+dependencies = ["flask==2.3.3"]
 readme = "README.md"
 requires-python = ">= 3.8"
 

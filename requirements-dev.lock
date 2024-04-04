@@ -8,3 +8,18 @@
 #   with-sources: false
 
 -e file:.
+blinker==1.7.0
+    # via flask
+click==8.1.7
+    # via flask
+flask==2.3.3
+    # via flask1
+itsdangerous==2.1.2
+    # via flask
+jinja2==3.1.3
+    # via flask
+markupsafe==2.1.5
+    # via jinja2
+    # via werkzeug
+werkzeug==3.0.2
+    # via flask
