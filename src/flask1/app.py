@@ -1,7 +1,4 @@
 from flask import Flask
+from flask1 import create_app
 
-app = Flask(__name__)
-
-@app.route("/")
-def index():
-    return "Hello Flask!"
+create_app()
