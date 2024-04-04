@@ -1,4 +1,4 @@
-from flask import Flask, render_template, url_for
+from flask import Flask, render_template, url_for, current_app, g
 
 def create_app(test_config = None):
     app = Flask(__name__)
@@ -22,7 +22,18 @@ def create_app(test_config = None):
 
     @app.get("/name/<name>")
     def show_name(name):
-        return render_template("index.html", name=name)
+
+        users = [{"url":"ogawa", "username":"ogawa"}, {"url":"garaike", "username":"garaike"}]
+
+        return render_template("index.html", name=name, users=users)
+
+    ctx = app.app_context()
+    ctx.push()
+
+    print(current_app.name)
+
+    g.connection = "connection"
+    print(g.connection)
 
     with app.test_request_context():
         print(url_for("index"))
