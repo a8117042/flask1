@@ -1,16 +1,15 @@
 from dotenv import load_dotenv
-from flask import Flask, render_template, url_for, current_app, g, request
+from flask import Flask, current_app, g, render_template, request, url_for
 
-def create_app(test_config = None):
+
+def create_app(test_config=None):
     load_dotenv(override=True)
 
     app = Flask(__name__)
-    app.config.from_mapping(
-        SECRET_KEY = 'test-secret'
-    )
+    app.config.from_mapping(SECRET_KEY="test-secret")
 
     if test_config is None:
-        app.config.from_pyfile('config.py', silent=True)
+        app.config.from_pyfile("config.py", silent=True)
     else:
         app.config.update(test_config)
 
@@ -26,7 +25,10 @@ def create_app(test_config = None):
     @app.get("/name/<name>")
     def show_name(name):
 
-        users = [{"url":"ogawa", "username":"ogawa"}, {"url":"garaike", "username":"garaike"}]
+        users = [
+            {"url": "ogawa", "username": "ogawa"},
+            {"url": "garaike", "username": "garaike"},
+        ]
 
         return render_template("index.html", name=name, users=users)
 

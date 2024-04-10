@@ -6,6 +6,7 @@ dependencies = [
     "flask==2.3.3",
     "pytest",
     "python-dotenv",
+    "black",
     ]
 readme = "README.md"
 requires-python = ">= 3.8"
